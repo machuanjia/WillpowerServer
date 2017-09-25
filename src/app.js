@@ -5,12 +5,18 @@ const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
+const service = require('./service');
+const api = require('./api');
+
 
 app.use(bodyParser());
 
 router.get('/', ctx => {
     ctx.body = 'Hello Koa app!';
 });
+
+api.initialize(app);
+
 app
     .use(router.routes())
     .use(router.allowedMethods());
