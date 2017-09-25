@@ -9,11 +9,12 @@ const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 
 router.get('/', ctx => {
-    ctx.body = 'Hello Koa';
+    ctx.body = 'Hello Koa app!';
 });
 app
     .use(router.routes())
     .use(router.allowedMethods());
+
 const server = app.listen(3000, () => {
         console.log(`server is started... 3000`);
 });
